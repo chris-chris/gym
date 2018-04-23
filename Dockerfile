@@ -4,7 +4,7 @@ RUN rm -vf /var/lib/apt/lists/*
 
 RUN apt-get update \
     && apt-get install -y libav-tools \
-    python-numpy \
+    # python-numpy \
     python-scipy \
     python-pyglet \
     python-setuptools \
