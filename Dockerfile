@@ -1,5 +1,5 @@
 # A Dockerfile that sets up a full Gym install
-FROM ubuntu:16.04
+FROM tensorflow/tensorflow:latest-gpu-py3
 
 ENV DEBIAN_FRONTEND noninteractive
 
