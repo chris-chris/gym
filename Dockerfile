@@ -3,6 +3,8 @@ FROM tensorflow/tensorflow:latest-gpu-py3
 
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN ln -sfn /usr/bin/python3 /usr/bin/python
+
 RUN apt-get update
 # RUN apt-get install console-common -y
 
