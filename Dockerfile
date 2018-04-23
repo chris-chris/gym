@@ -40,9 +40,9 @@ RUN apt-get install -y libav-tools \
 # WORKDIR /usr/local/gym
 
 RUN pip install gym[all]
-
+RUN /bin/bash -c "ln -sfn /usr/bin/python3 /usr/bin/python"
 # RUN ln -sfn /usr/bin/python3 /usr/bin/python
-RUN alias python=python3
+# RUN alias python=python3
 
 WORKDIR /root
 # ENTRYPOINT ["/usr/local/gym/bin/docker_entrypoint"]
