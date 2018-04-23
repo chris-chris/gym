@@ -1,13 +1,12 @@
 # A Dockerfile that sets up a full Gym install
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 RUN rm -vf /var/lib/apt/lists/*
 RUN apt-get clean
 
 RUN apt-get update \
     && apt-get install -y libav-tools \
-    # python-numpy \
+    python-numpy \
     python-scipy \
-    python-pyglet \
     python-setuptools \
     libpq-dev \
     libjpeg-dev \
@@ -33,15 +32,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && easy_install pip
 
-WORKDIR /usr/local/gym
-RUN mkdir -p gym && touch gym/__init__.py
-COPY ./gym/version.py ./gym
-COPY ./requirements.txt .
-COPY ./setup.py .
-RUN pip install -e .[all]
+# WORKDIR /usr/local/gym
 
-# Finally, upload our actual code!
-COPY . /usr/local/gym
+RUN pip install gym[all]
 
 WORKDIR /root
-ENTRYPOINT ["/usr/local/gym/bin/docker_entrypoint"]
+# ENTRYPOINT ["/usr/local/gym/bin/docker_entrypoint"]
