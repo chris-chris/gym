@@ -1,7 +1,7 @@
 # A Dockerfile that sets up a full Gym install
 FROM ubuntu:16.04
-RUN rm -vf /var/lib/apt/lists/*
-RUN apt-get clean
+
+RUN L='us' && sed -i 's/XKBLAYOUT=\"\w*"/XKBLAYOUT=\"'$L'\"/g' /etc/default/keyboard
 
 RUN apt-get update \
     && apt-get install -y libav-tools \
